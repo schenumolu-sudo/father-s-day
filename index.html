@@ -59,12 +59,6 @@ h1{
     to{ transform:translateY(-110vh); }
 }
 
-.carousel img{
-    height:350px;
-    object-fit:cover;
-    border-radius:15px;
-}
-
 </style>
 </head>
 
@@ -79,12 +73,7 @@ h1{
 
 <div class="main-card text-center">
 
-<h1>Happy Father's Day</h1>
-
-<!-- Dad Photo -->
-<img src="blob:https://web.whatsapp.com/15b7e105-0740-4a4e-a734-4520302aa548"
-     class="img-fluid rounded-circle shadow my-3"
-     style="width:220px;height:220px;object-fit:cover;">
+<h1>👔 Happy Father's Day 👔</h1>
 
 <p class="lead">
 Thank you Dad for always supporting me,
@@ -103,49 +92,10 @@ helping me, and making every day better.
 ❤️ You're the best Dad in the world! ❤️
 </div>
 
-<!-- Family Carousel -->
-<div id="familyCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
-
-<div class="carousel-inner">
-
-<div class="carousel-item active">
-<img src="blob:https://web.whatsapp.com/41d1a00e-988e-4668-b06b-ece51c1adbeb" class="d-block w-100">
-</div>
-
-<div class="carousel-item">
-<img src="blob:https://web.whatsapp.com/ae227f2e-7484-493e-9ef3-2220d5889617" class="d-block w-100">
-</div>
-
-<div class="carousel-item">
-<img src="blob:https://web.whatsapp.com/31a11fff-99e1-4c58-83c9-fd9e7e6885fd" class="d-block w-100">
 </div>
 
 </div>
 
-<button class="carousel-control-prev" type="button" data-bs-target="#familyCarousel" data-bs-slide="prev">
-<span class="carousel-control-prev-icon"></span>
-</button>
-
-<button class="carousel-control-next" type="button" data-bs-target="#familyCarousel" data-bs-slide="next">
-<span class="carousel-control-next-icon"></span>
-</button>
-
-</div>
-
-<!-- 🎵 YouTube Music -->
-<div id="music" style="display:none; margin-top:20px;">
-    <iframe
-        id="song"
-        width="0"
-        height="0"
-        src="https://www.youtube.com/embed/HX9QEHv2HMc?autoplay=1"
-        allow="autoplay">
-    </iframe>
-</div>
-
-</div>
-
-</div>
 </div>
 
 <script>
@@ -154,27 +104,26 @@ const text =
 "Thank you Dad for everything you do for our family. I love you and appreciate all your hard work! ❤️";
 
 let i = 0;
+let typingStarted = false;
 
-function typeWriter(){
-    if(i < text.length){
+function typeWriter() {
+    if (i < text.length) {
         document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
-        setTimeout(typeWriter,60);
+        setTimeout(typeWriter, 50);
     }
 }
 
-function showSurprise(){
+function showSurprise() {
     document.getElementById("message").style.display = "block";
-    document.getElementById("music").style.display = "block";
 
-    if(i === 0){
+    if (!typingStarted) {
+        typingStarted = true;
         typeWriter();
     }
 }
 
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
