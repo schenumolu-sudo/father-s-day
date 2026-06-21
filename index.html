@@ -41,6 +41,24 @@ h1{
     min-height:60px;
 }
 
+.gift-box{
+    font-size:90px;
+    cursor:pointer;
+    transition:transform .3s;
+    margin-top:20px;
+}
+
+.gift-box:hover{
+    transform:scale(1.1);
+}
+
+#surprise{
+    display:none;
+    font-size:50px;
+    animation:pop .5s ease;
+    margin-top:20px;
+}
+
 .heart{
     position:fixed;
     bottom:-50px;
@@ -57,6 +75,17 @@ h1{
 @keyframes float{
     from{ transform:translateY(0); }
     to{ transform:translateY(-110vh); }
+}
+
+@keyframes pop{
+    from{
+        transform:scale(0);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
 }
 
 </style>
@@ -80,9 +109,15 @@ Thank you Dad for always supporting me,
 helping me, and making every day better.
 </p>
 
-<button class="btn btn-primary btn-lg" onclick="showSurprise()">
-🎁 Open Surprise
-</button>
+<!-- Present -->
+<div class="gift-box" onclick="showSurprise()">
+    🎁
+</div>
+
+<!-- Surprise -->
+<div id="surprise">
+    ❤️ BEST DAD EVER ❤️
+</div>
 
 <div id="message">
 
@@ -115,6 +150,10 @@ function typeWriter() {
 }
 
 function showSurprise() {
+
+    document.querySelector(".gift-box").innerHTML = "📦";
+
+    document.getElementById("surprise").style.display = "block";
     document.getElementById("message").style.display = "block";
 
     if (!typingStarted) {
